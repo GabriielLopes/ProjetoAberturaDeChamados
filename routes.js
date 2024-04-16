@@ -7,9 +7,7 @@ const loginController = require('./src/controllers/loginController')
 const cadastroController = require('./src/controllers/cadastroController')
 const consultaChamadosController = require('./src/controllers/consultaChamadosController')
 const abrirChamadoController = require('./src/controllers/abrirChamadoController')
-const controletonerController = require('./src/controllers/controletonerController')
 const { loginRequired, TiRequired } = require('./src/middlewares/middleware')
-
 
 // ROTAS DA HOMEPAGE
 route.get('/',homeController.index);
@@ -36,11 +34,5 @@ route.get('/consulta-chamados/delete/:id',TiRequired,loginRequired,consultaChama
 route.get('/abertura-chamados/index',loginRequired,abrirChamadoController.index)
 route.get('/abertura-chamado/chamado-enviado',loginRequired,abrirChamadoController.chamadoEnviado)
 route.post('/abertura-chamado/abrir-chamado',loginRequired,abrirChamadoController.chamados)
-
-// ROTAS DE CONTROLE DE TONERS
-
-route.get('/controle-toners/index',loginRequired,controletonerController.index)
-route.get('/controle-toners/entradaDeToners',loginRequired,controletonerController.entradaToner)
-
 
 module.exports = route;
