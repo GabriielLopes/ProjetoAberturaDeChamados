@@ -1,0 +1,61 @@
+<%- include('includes/head') %>
+
+  <body>
+<%- include('includes/nav') %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2"></div>
+    
+    <div class="col-lg-13 my-3">
+      <!--conteudo-->
+
+      <h1 class="text-center">CHAMADOS EM ABERTO</h1>
+      <p class="text-center lead">Você pode visualizar abaixo, os chamados que estão em aberto:</p>
+
+      <%- include('includes/messages') %>
+
+      <div class="responsive-table">
+        <table class="table table-striped my-3" >
+          <tr>
+            <td>Nome solicitante: </td>
+            <td>Departamento:</td>
+            <td>Motivo do chamado:</td>
+            <td>Data do chamado:</td>
+            <td>Prioridade do chamado: </td>
+            <td>Status do chamado:</td>
+            <td>Opções: </td>
+          </tr>
+          <% chamadoAberto.forEach(chamado => { %>
+            <tr>
+              <td><%= chamado.nome %> <%= chamado.sobrenome %> </td>
+              <td><%= chamado.setor %></td>
+              <td><%= chamado.motivoChamado %></td>
+              <td><%= chamado.data.getDate() %>/<%= chamado.data.getMonth() %>/<%= chamado.data.getFullYear() %> </td>
+              <td><%= chamado.prioridadeChamado %></td>
+              <td style="color: red;"><%= chamado.statusChamado  %></td>
+              <td><a href="/consulta-chamados/edit/<%= chamado._id %>">Ver detalhes ou editar</a></td>
+            </tr>
+            
+            <% }); %>
+            
+            
+          </table>
+        </div>
+        
+        <div class="my-5">
+          <% if(chamadoAberto.length <= 0) { %>
+            <h3 class="text-center my-5" style="color: black;">Não há chamados pendentes</h3>
+          <% } %>
+          <a href="/"><input type="button" class="btnVoltar btn btn-danger my-1" value="Voltar para página inicial"></a>
+          <a href="/consulta-chamados/finalizados"><input type="submit" value="Clique aqui, para ver somente os chamados que foram finalizados" class="btn btn-dark"></a>
+
+      </div>
+      <div class="col-lg-2"></div>
+    </div>
+
+
+  </div>
+</div>
+
+<%- include('includes/footer') %>

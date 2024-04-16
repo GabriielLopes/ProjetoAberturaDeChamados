@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">SISTEMA T.I</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+
+            <% if(!sessionUser){ %>
+                <li class="nav-item">
+                    <a class="nav-link" href="/login/index">Entrar</a>
+                </li>
+
+            <% } else { %>
+                <li class="nav-item">
+                    <a class="nav-link" href="/abertura-chamados/index">Abrir chamados</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="/consulta-chamados/index">Consultar Chamados</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Ir para o inicio</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/login/logout" style="color: rgb(255, 74, 74);">Sair</a>
+                </li>
+
+            <% } %>
+
+
+            
+        </ul>
+
+    </div>
+</nav>

@@ -1,0 +1,17 @@
+para instalar os pacotes necessários para utilizar a sessão do navegador --> npm i express-session connect-mongo connect-flash
+
+    <%= titulo %> // essas tags em ejs previne de escapar tags em HTML
+    <%- titulo % // essas tags em ejs executa tags em HTML
+    <%  %> // essas tags em ejs executa códigos em JS
+    <%#  %> essas tags em ejs são utilizadas para comentar dentro do código
+
+// validação de e-mail -- biblioteca
+ 
+    npm i validator
+
+
+
+
+// para esconder a senha do usuario na BD, iremos instalar o bcrypt JS
+
+    npm i bcryptjs

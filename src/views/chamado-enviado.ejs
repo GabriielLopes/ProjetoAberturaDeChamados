@@ -1,0 +1,32 @@
+<%- include('includes/head') %>
+
+  <body>
+<%- include('includes/nav') %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2"></div>
+
+    <div class="col-lg-13 my-5">
+      <!--conteudo-->
+      <h1 class="display-3 text-center">O seu chamado foi aberto com sucesso!</h1>
+      <%- include('includes/messages') %>
+
+     <div class="list-group my-5">
+        <button type="button" class="btn btn-info" disabled>
+          O que deseja fazer agora?
+        </button>
+        <a href="/abertura-chamados/index" style="text-decoration: none;"><button type="button" class="list-group-item list-group-item-action ">Abrir outro chamado</button></a>
+        <a href="/consulta-chamados/index" style="text-decoration: none;"><button type="button" class="list-group-item list-group-item-action">Consultar seus chamados abertos</button></a>
+        <a href="/" style="text-decoration: none;"><button type="button" class="list-group-item list-group-item-action">ir para a página inicial</button></a>
+        
+      </div>
+
+      <p class="text-center lead"></p>
+    </div>
+    <div class="col-lg-2"></div>
+
+  </div>
+</div>
+
+<%- include('includes/footer') %>

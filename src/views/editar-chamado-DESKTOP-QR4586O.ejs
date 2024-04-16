@@ -1,0 +1,103 @@
+<%- include('includes/head') %>
+
+  <body>
+<%- include('includes/nav') %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2"></div>
+    
+    <div class="col-lg-8 my-3">
+      <!--conteudo-->
+
+      <h1 class="text-center">EDIÇÃO DE CHAMADO</h1>
+      <hr>
+      <%- include('includes/messages') %>
+
+      <form action="/consulta-chamados/edit/<%=chamadoAberto._id %>" method="post">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+        <div class="form-group my-2">
+
+            <% let hoje = chamadoAberto.data %>
+            <% let dia = hoje.getDate(); %>
+            <% let mes = hoje.getMonth(); %>
+            <% let ano = hoje.getFullYear(); %>
+            
+
+            <h1> Informações do solicitante</h1>
+            <span> Nome do solicitante: </span>
+            <input type="name" name="nome" class="form-control" value="<%= chamadoAberto.nome %> <%=chamadoAberto.sobrenome%>" disabled>
+            <input type="hidden" name="nome" class="form-control" value="<%=chamadoAberto.nome%>">
+            <input type="hidden" name="sobrenome" class="form-control" value="<%= chamadoAberto.sobrenome %>">
+            
+            <span>Departamento</span>
+            <input type="text" name="setor"  class="setor form-control" value="<%= chamadoAberto.setor %>"  disabled>
+            <input type="hidden" name="setor"  class="setor form-control" value="<%= chamadoAberto.setor %>">
+            <span>Cargo</span>
+            <input type="text" name="funcao" class="cargo form-control" value="<%= chamadoAberto.funcao %>"  disabled>
+            <input type="hidden" name="funcao" class="cargo form-control" value="<%= chamadoAberto.funcao %>">
+            <span>Data de solicitação:</span>
+            <input type="text" name="data" class="data form-control" value="<%= dia%>/<%=mes%>/<%=ano%>" disabled>
+  
+
+        </div>
+
+        <div class="form-group my-2" >
+            <h1>Informações do chamado: </h1>
+            <span>N° do chamado: </span>
+            <input name="numChamado" class="num-chamado form-control" disabled value="0">
+            <input name="numChamado" type="hidden" class="num-chamado form-control" value="1">
+
+            <span>Status do chamado: </span>
+
+            
+          
+
+    
+              <select <% if(chamadoAberto.statusChamado === "FINALIZADO") {%> disabled style="color: green;" <%}%> class="statusChamado form-control" name="statusChamado" value="<%= chamadoAberto.statusChamado %>">
+                <option value="<%= chamadoAberto.statusChamado %>"><%= chamadoAberto.statusChamado %></option>
+                <option value="FINALIZADO">FINALIZADO</option>
+                </select>
+              
+              
+
+            <span>Motivo do chamado: </span>
+            <select disabled name="motivoChamado" class="form-control" value="<%= chamadoAberto.motivoChamado %>">
+                <option value="<%= chamadoAberto.motivoChamado %>"><%= chamadoAberto.motivoChamado %></option>
+                <option value="Software">Software</option>
+                <option value="Hardware">Hardware</option>
+                <option value="Criação de e-mail"> Criação de e-mail</option>
+                <option value="Redefinição de senha de e-mail">Redefinição de senha de e-mail</option>
+                <option value="Criação de usuário p/ computador">Criação de usuário p/ computador</option>
+                <option value="Redefinição de senha de usuário computador">Redefinição de senha de usuário computador</option>
+            </select>
+            <span>Informe a prioridade do chamado: </span>
+            <select disabled name="prioridadeChamado" class="form-control" value="<%= chamadoAberto.prioridadeChamado %>">
+                <option value="<%= chamadoAberto.prioridadeChamado %>"><%= chamadoAberto.prioridadeChamado%></option>
+                <option value="baixa">Baixa</option>
+                <option value="normal">Normal</option>
+                <option value="alta">Alta</option>
+
+            </select>
+            <br>   
+            <span>Informe a descrição do chamado: </span>
+          <textarea disabled name="descricaoChamado" id="descricaoChamado" cols="80" rows="3" class="form-control" c style="height: 80px;" ><%= chamadoAberto.descricaoChamado %> </textarea>
+          
+        </div>
+
+       
+          <input type="submit" value="Salvar" class="btn btn-primary">
+          <a href="/consulta-chamados/index"><input type="button" class="btnVoltar btn btn-danger my-1" value="Voltar"></a>
+
+      
+
+    </form>
+</div>
+
+
+    <div class="col-lg-2"></div>
+
+  </div>
+</div>
+
+<%- include('includes/footer') %>

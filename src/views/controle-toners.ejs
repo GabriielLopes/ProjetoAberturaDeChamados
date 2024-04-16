@@ -1,0 +1,63 @@
+<%- include('includes/head') %>
+
+  <body>
+<%- include('includes/nav') %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2"></div>
+    
+    <div class="col-lg-13 my-3">
+      <!--conteudo-->
+
+      <h1 class="text-center">CONTROLE DE TONERS</h1>
+      <p class="text-center lead">Você pode visualizar abaixo, os toners disponíveis:</p>
+
+      <%- include('includes/messages') %>
+
+      <div class="responsive-table">
+        <table class="table table-striped my-3" >
+          <tr>
+            <tr>
+              <td>Local de instalação: </td>
+              <td>Modelo Impressora: </td>
+              <td>Patrimonio: </td>
+              <td>Preto:</td>
+              <td>Magenta:</td>
+              <td>Amarelo:</td>
+              <td>Ciano</td>
+              <td>Opções: </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td><a href="">Ver detalhes</a></td>
+              
+            </tr>
+          
+            
+          </table>
+        </div>
+        
+        <div class="my-5">
+         
+           
+        
+          <a href="/"><input type="button" class="btnVoltar btn btn-danger my-1" value="Voltar para página inicial"></a>
+          <a href="/controle-toners/entradaDeToners"><input type="button" class="btn btn btn-dark my-1" value="Realizar entrada de toner"></a>
+          <a href=""><input type="button" class="btn btn btn-dark my-1" value="Consultar entradas de toners"></a>
+      </div>
+      <div class="col-lg-2"></div>
+    </div>
+
+
+  </div>
+</div>
+
+<%- include('includes/footer') %>

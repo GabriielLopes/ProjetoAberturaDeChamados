@@ -1,0 +1,84 @@
+<%- include('includes/head') %>
+
+  <body>
+<%- include('includes/nav') %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2"></div>
+
+    <div class="col-lg-8 my-3">
+      <!--conteudo-->
+
+      <div class="form-group my-2">
+
+        <h1 class="text-center">CADASTRE-SE</h1>
+
+        <%- include('includes/messages') %>
+
+        <form action=" /cadastro/registrar" method="post">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+  
+          <span>Nome:</span><input name="nome" class="name input form-control" type="name">
+          <p class="Name-info-erro"></p>
+  
+          <span>Sobrenome: </span> <input name="sobrenome" class="lastName input form-control" type="lastname">
+          <p class="Last-Name-info-erro"></p>
+          
+          <span>Departamento:</span><select name="setor" class="setor-list select form-control" >
+              <option value="Selecione o seu Departamento">Selecione o seu Departamento</option>
+              <option value="Diretoria Administrativa">Diretoria Administrativa</option>
+              <option value="Departamento Pessoal">Departamento Pessoal</option>
+              <option value="Recursos Humanos">Recursos Humanos</option>
+              <option value="SESMT">SESMT</option>
+              <option value="T.I">T.I</option>
+            
+
+          </select>
+          <p class="setor-info-erro"></p>
+      
+          <span>Função: </span>
+          <select name="funcao" class="cargo-list select form-control">
+            <option>Auxiliar Administrativo</option>
+            <option>Assistente Administrativo</option>
+            <option>Analista de gestão de pessoas Jr.</option>
+            <option>Analista de gestão de pessoas Pl.</option>
+            <option>Analista de gestão de pessoas Sr.</option>
+            <option>Analista de Sistemas Jr.</option>
+            <option>Analista de Sistemas Pl.</option>
+            <option>Analista de Sistemas Sr.</option>
+            <option>Gerente de Departamento de Pessoal</option>
+            <option>Gerente Administrativo</option>
+            <option>Diretora Técnica</option>
+
+          </select>
+          <p class="cargo-info-erro"></p>
+  
+          <span>E-mail: </span><input name="email" type="email" class="email input form-control">
+          <p class="email-info-erro"></p>
+  
+          <span>Senha: </span> <input name="senha" class="senha input form-control" type="password">
+          <p class="senha-info-erro"></p>
+  
+          <span>Confirme a sua senha: </span> <input name="repeteSenha"  class="RepeteSenha input form-control" type="password">
+          <p class="Repetesenha-info-erro"></p>
+  
+          <input type="submit" class="btnEnviar btn btn-primary" value="FINALIZAR" style="width: 100%">
+          <a href="/login/index"><input type="button" class="btnVoltar btn btn-danger my-1" value="CANCELAR" style="width: 100%"></a>
+          <p class="resultado"></p>
+      </form>
+
+      </div>
+      
+    <div class="col-lg-2"></div>
+
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src=" ./assets/js/bundle.js"></script>
+    
+  </body>
+</html>
